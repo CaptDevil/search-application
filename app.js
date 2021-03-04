@@ -25,6 +25,8 @@ app.get('/api/:data',(req,res)=>{
         console.log({time,count,arr})
         res.send({time,count,arr});
     }
+    else
+        res.send({time:-1,count:-1,arr:[]})
     count=0,arr=[];
 })
 
