@@ -13,6 +13,6 @@ For the express server
 <npm install .`
 
 For the react client
-`<cd client>`
+`cd client`
 then write this
-`<npm install>`
+`npm install`
