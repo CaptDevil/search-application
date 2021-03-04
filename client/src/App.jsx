@@ -18,6 +18,8 @@ class App extends Component {
         this.setState({time:res.data.time,count:res.data.count,results:res.data.arr})
       })
     }
+    else
+      this.setState({time:0,count:0,results:[]})
   }
 
   render() { 
