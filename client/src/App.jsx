@@ -14,7 +14,10 @@ class App extends Component {
   handleInput=(data)=>{
     axios.get(`/api/${data}`)
       .then(res=>{
-        this.setState({time:res.data.time,count:res.data.count,results:res.data.arr})
+        if(typeof res.data != undefined)
+          this.setState({time:res.data.time,count:res.data.count,results:res.data.arr})
+        else
+          this.setState({time:-1,count:-1,results:[]})
       })
     /**if(data){
       

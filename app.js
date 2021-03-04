@@ -17,13 +17,14 @@ let a=[];
 let count=0;
 
 app.get('/api/:data',(req,res)=>{
-    let startTime=Date.now();
-    console.log(req.params.data)
-    bsearch(0,a.length-1,req.params.data.toLowerCase())
-    let endTime=Date.now()
-    let time=endTime-startTime;
-    console.log({time,count,arr})
-    res.send({time,count,arr});
+    if(typeof req.params.data != undefined){
+        let startTime=Date.now();
+        bsearch(0,a.length-1,req.params.data.toLowerCase())
+        let endTime=Date.now()
+        let time=endTime-startTime;
+        console.log({time,count,arr})
+        res.send({time,count,arr});
+    }
     count=0,arr=[];
 })
 
