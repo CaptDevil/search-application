@@ -20,6 +20,7 @@ class App extends Component {
     }
     else
       this.setState({time:0,count:0,results:[]})
+    console.log(this.state)
   }
 
   render() { 
