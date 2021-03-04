@@ -2,7 +2,7 @@ import React from 'react';
 
 function Output(props) {
     let button;
-    if(props.data.time==0)
+    if(props.data.time>0)
         button=<p>Searched in {props.data.time} ns, from {props.data.count} results.</p>
     else
         button=<p></p>
