@@ -6,8 +6,8 @@ import Output from './components/output'
 
 class App extends Component {
   state = {
-    time:0,
-    count:0,
+    time:-1,
+    count:-1,
     results:[]
   }
 
