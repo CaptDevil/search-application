@@ -18,6 +18,7 @@ let count=0;
 
 app.get('/api/:data',(req,res)=>{
     let startTime=Date.now();
+    console.log(req.params.data)
     bsearch(0,a.length-1,req.params.data.toLowerCase())
     let endTime=Date.now()
     let time=endTime-startTime;
