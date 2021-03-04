@@ -8,7 +8,7 @@ app.use(cors())
 fs.readFile('./data-set/english3.txt',{encoding:"UTF-8"},(err,data)=>{
     if(err)
         throw err;
-    console.log(typeof data)
+    console.log(typeof data)//hello
     a=data.split('\n')
     console.log(a)
 })
