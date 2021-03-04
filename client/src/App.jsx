@@ -13,7 +13,7 @@ class App extends Component {
 
   handleInput=(data)=>{
     if(data){
-      axios.get(`https://ancient-gorge-12544.herokuapp.com/api/${data}`)
+      axios.get(`/api/${data}`)
       .then(res=>{
         this.setState({time:res.data.time,count:res.data.count,results:res.data.arr})
       })
