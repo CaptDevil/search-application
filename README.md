@@ -10,8 +10,9 @@ The program will show results based on the charcters entered in the input box.
 Go into the folder.
 
 For the express server
-`<npm install .>`
+<npm install .`
 
 For the react client
 `<cd client>`
+then write this
 `<npm install>`
