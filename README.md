@@ -7,4 +7,11 @@ The program will go through the whole data set using the divide and conquer meth
 The program will show results based on the charcters entered in the input box.
 
 ### How to install
+Go into the folder.
+
+For the express server
 `<npm install .>`
+
+For the react client
+`<cd client>`
+`<npm install>`
