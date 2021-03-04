@@ -3,7 +3,7 @@ import React from 'react';
 function Output(props) {
     let button;
     if(props.data.time>0)
-        button=<p>Searched in {props.data.time} ns, from {props.data.count} results.</p>
+        button=<p>Searched from {props.data.count} results in {props.data.time} ns.</p>
     else
         button=<p></p>
     return (
