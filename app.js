@@ -1,7 +1,6 @@
 const express = require('express')
 const cors = require('cors');
 const fs = require('fs');
-const { ECHILD } = require('constants');
 
 const app = express();
 app.use(cors())
@@ -13,9 +12,7 @@ fs.readFile('./data-set/english3.txt',{encoding:"UTF-8"},(err,data)=>{
     console.log(a)
 })
 
-let a=[];
-
-let count=0;
+let a=[],count=0;
 
 app.get('/api/:data',(req,res)=>{
     if(typeof req.params.data != undefined){
