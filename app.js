@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors');
-const fs = require('fs')
+const fs = require('fs');
+const { ECHILD } = require('constants');
 
 const app = express();
 app.use(cors())
@@ -20,6 +21,7 @@ app.get('/api/:data',(req,res)=>{
     if(typeof req.params.data != undefined){
         let startTime=Date.now();
         bsearch(0,a.length-1,req.params.data.toLowerCase())
+        quickSort(0,arr.length-1)
         let endTime=Date.now()
         let time=endTime-startTime;
         console.log({time,count,arr})
@@ -50,6 +52,34 @@ function bsearch(low,high,data){
     }
     else
         return
+}
+
+function quickSort(low,high){
+    let m;
+    if(low<high)
+        m=partition(low,high);
+    quickSort(low,m-1)
+    quickSort(m+1,high)
+}
+
+function partition(low,high){
+    pivot=low,i=low+1,j=high
+    while(i<=j){
+        while(arr[i]<=arr[pivot])
+            i++;
+        while(arr[j]>arr[pivot])
+            j--;
+        if(i<=j)
+            swapArr(i,j)
+    }
+    swapArr(j,pivot)
+    return j;
+}
+
+function swapArr(i,j){
+    let t=arr[i]
+    arr[i]=arr[j]
+    arr[j]=t
 }
 
 if(process.env.NODE_ENV == 'production'){
