@@ -67,10 +67,9 @@ function quickSort(low,high){
 function partition(low,high){
     pivot=low,i=low+1,j=high
     while(i<=j){
-        console.log(arr[i].localeCompare(arr[pivot]))
-        while(arr[i]<=arr[pivot])
+        while(arr[pivot].localeCompare(arr[i])>=0)
             i++;
-        while(arr[j]>arr[pivot])
+        while(arr[pivot].localeCompare(arr[i])<0)
             j--;
         if(i<=j)
             swapArr(i,j)
