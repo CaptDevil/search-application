@@ -69,7 +69,7 @@ function partition(low,high){
     while(i<=j){
         while(arr[pivot].localeCompare(arr[i])>=0)
             i++;
-        while(arr[pivot].localeCompare(arr[i])<0)
+        while(arr[pivot].localeCompare(arr[j])<0)
             j--;
         if(i<=j)
             swapArr(i,j)
