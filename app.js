@@ -21,7 +21,7 @@ app.get('/api/:data',(req,res)=>{
     if(typeof req.params.data != undefined){
         let startTime=Date.now();
         bsearch(0,a.length-1,req.params.data.toLowerCase())
-        quickSort(0,arr.length-3)
+        quickSort(0,arr.length-1)
         let endTime=Date.now()
         let time=endTime-startTime;
         console.log({time,count,arr})
