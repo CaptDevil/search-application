@@ -15,7 +15,7 @@ fs.readFile('./data-set/english3.txt',{encoding:"UTF-8"},(err,data)=>{
 let a=[],count=0,history=[];
 
 app.get('/api/:data',(req,res)=>{
-    if(typeof req.params.data != null){
+    if(typeof req.params.data != ''){
         quickSort(0,history.length-1,history)
         let startTime=Date.now();
         bsearchHistory(0,history.length-1,req.params.data.toLowerCase())
