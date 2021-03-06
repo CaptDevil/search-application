@@ -17,6 +17,7 @@ let a=[],count=0,history=[];
 app.get('/api/:data',(req,res)=>{
     if(typeof req.params.data != undefined){
         let startTime=Date.now();
+        console.log(req.params.data)
         bsearchHistory(0,history.length-1,req.params.data.toLowerCase())
         bsearchIndex(0,a.length-1,req.params.data.toLowerCase())
         quickSort(0,arr.length-1)
@@ -57,7 +58,6 @@ function quickSort(low,high){
     let m;
     if(low<high){
         m=partition(low,high);
-        console.log(low,m,high,arr)
         quickSort(low,m-1)
         quickSort(m+1,high)
     }
