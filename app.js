@@ -43,7 +43,7 @@ function bsearch(low,high,data,A){
             history.push(A[mid])
             if(mid>0 && !A[mid-1].toLowerCase().startsWith(data))
                 high1=low-1
-            if(mid<a.length-1 && !A[mid+1].toLowerCase().startsWith(data))
+            if(mid<A.length-1 && !A[mid+1].toLowerCase().startsWith(data))
                 low1=high+1
         }
         bsearch(low,high1,data)
@@ -83,8 +83,9 @@ function swapArr(i,j){
     arr[j]=t
 }
 
-function searchIndex(data){
+function searchIndex(){
     bsearch(0,a.length-1,data,a)
+    console.log(a)
 }
 
 function searchHistory(data){
