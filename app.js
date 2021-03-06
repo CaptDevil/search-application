@@ -16,6 +16,7 @@ let a=[],count=0,history=[];
 
 app.get('/api/:data',(req,res)=>{
     if(typeof req.params.data != undefined){
+        quickSort(0,history.length-1,history)
         let startTime=Date.now();
         bsearchHistory(0,history.length-1,req.params.data.toLowerCase())
         bsearchIndex(0,a.length-1,req.params.data.toLowerCase())
@@ -98,10 +99,8 @@ function bsearchHistory(low,high,data){
         bsearchHistory(low,high1,data)
         bsearchHistory(low1,high,data)
     }
-    else{
-        quickSort(0,history.length-1,history)
+    else
         return
-    }
 }
 
 if(process.env.NODE_ENV == 'production'){
