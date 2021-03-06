@@ -25,6 +25,7 @@ app.get('/api/:data',(req,res)=>{
             console.log("Index searched",arr)
         let endTime=Date.now()
         quickSort(0,arr.length-1,arr)
+        console.log('Results sorted',arr)
         let time=endTime-startTime;
         console.log({time,count,arr,history})
         res.send({time,count,arr});
