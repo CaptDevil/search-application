@@ -88,7 +88,7 @@ function searchIndex(){
 }
 
 function searchHistory(data){
-    bsearch(0,a.length-1,data,history)
+    bsearch(0,history.length-1,data,history)
 }
 
 if(process.env.NODE_ENV == 'production'){
