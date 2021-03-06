@@ -84,6 +84,7 @@ function partition(low,high,A){
 }
 
 function swapArr(i,j,A){
+    console.log(A[i],A[j])
     let t=A[i]
     A[i]=A[j]
     A[j]=t
