@@ -12,12 +12,13 @@ fs.readFile('./data-set/english3.txt',{encoding:"UTF-8"},(err,data)=>{
     console.log(a)
 })
 
-let a=[],count=0;
+let a=[],count=0,history=[];
 
 app.get('/api/:data',(req,res)=>{
     if(typeof req.params.data != undefined){
         let startTime=Date.now();
-        bsearch(0,a.length-1,req.params.data.toLowerCase())
+        searchHistory(req.params.data.toLowerCase())
+        searchIndex(req.params.data.toLowerCase())
         quickSort(0,arr.length-1)
         let endTime=Date.now()
         let time=endTime-startTime;
@@ -31,17 +32,18 @@ app.get('/api/:data',(req,res)=>{
 
 let arr=[]
 
-function bsearch(low,high,data){
+function bsearch(low,high,data,A){
     let mid,high1,low1;
     if(low<=high && arr.length!=6){
         count++;
         mid=parseInt((low+high)/2)
         high1=mid-1,low1=mid+1
-        if(a[mid].toLowerCase().startsWith(data)){
-            arr.push(a[mid])
-            if(mid>0 && !a[mid-1].toLowerCase().startsWith(data))
+        if(A[mid].toLowerCase().startsWith(data)){
+            arr.push(A[mid])
+            history.push(A[mid])
+            if(mid>0 && !A[mid-1].toLowerCase().startsWith(data))
                 high1=low-1
-            if(mid<a.length-1 && !a[mid+1].toLowerCase().startsWith(data))
+            if(mid<a.length-1 && !A[mid+1].toLowerCase().startsWith(data))
                 low1=high+1
         }
         bsearch(low,high1,data)
@@ -79,6 +81,14 @@ function swapArr(i,j){
     let t=arr[i]
     arr[i]=arr[j]
     arr[j]=t
+}
+
+function searchIndex(){
+    bsearch(0,a.length-1,data,a)
+}
+
+function searchHistory(data){
+    bsearch(0,a.length-1,data,history)
 }
 
 if(process.env.NODE_ENV == 'production'){
