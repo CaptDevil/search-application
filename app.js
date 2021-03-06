@@ -20,7 +20,9 @@ app.get('/api/:data',(req,res)=>{
         console.log({data:req.params.data})
         let startTime=Date.now();
             bsearchHistory(0,history.length-1,req.params.data.toLowerCase())
+            console.log("History searched")
             bsearchIndex(0,a.length-1,req.params.data.toLowerCase())
+            console.log("Index searched")
         let endTime=Date.now()
         quickSort(0,arr.length-1,arr)
         let time=endTime-startTime;
