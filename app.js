@@ -73,11 +73,10 @@ function partition(low,high,A){
     pivot=low,i=low+1,j=high
     while(i<=j){
         console.log(A[pivot],A[i],A[j])
-        while(A[pivot].localeCompare(A[i])>=0 && i!=j)
+        while(A[pivot].localeCompare(A[i])>=0)
             i++;
         while(A[pivot].localeCompare(A[j])<0)
             j--;
-        
         if(i<=j)
             swapArr(i,j,A)
     }
@@ -86,7 +85,6 @@ function partition(low,high,A){
 }
 
 function swapArr(i,j,A){
-    console.log(A[i],A[j])
     let t=A[i]
     A[i]=A[j]
     A[j]=t
