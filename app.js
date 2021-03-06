@@ -63,6 +63,7 @@ function quickSort(low,high,A){
     console.log(low,high,A)
     if(low<high){
         m=partition(low,high,A);
+        console.log(m,A[m])
         quickSort(low,m-1,A)
         quickSort(m+1,high,A)
     }
