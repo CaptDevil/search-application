@@ -17,15 +17,11 @@ let a=[],count=0,history=[];
 app.get('/api/:data',(req,res)=>{
     if(typeof req.params.data != undefined){
         quickSort(0,history.length-1,history)
-        console.log({data:req.params.data})
         let startTime=Date.now();
-            bsearchHistory(0,history.length-1,req.params.data.toLowerCase())
-            console.log("History searched",arr)
-            bsearchIndex(0,a.length-1,req.params.data.toLowerCase())
-            console.log("Index searched",arr)
+        bsearchHistory(0,history.length-1,req.params.data.toLowerCase())
+        bsearchIndex(0,a.length-1,req.params.data.toLowerCase())
         let endTime=Date.now()
         quickSort(0,arr.length-1,arr)
-        console.log('Results sorted',arr)
         let time=endTime-startTime;
         console.log({time,count,arr,history})
         res.send({time,count,arr});
@@ -74,9 +70,9 @@ function partition(low,high,A){
     while(i<=j){
         console.log(A[pivot],A[i],A[j])
         while(A[pivot].localeCompare(A[i])>=0 && i<=j)
-            console.log(i++);
+            i++
         while(A[pivot].localeCompare(A[j])<0)
-            console.log(j--);
+            j--
         if(i<=j){
             t=A[i]
             A[i]=A[j]
@@ -86,7 +82,6 @@ function partition(low,high,A){
     t=A[pivot]
     A[pivot]=A[j]
     A[j]=t
-    console.log(arr)
     return j;
 }
 
@@ -97,7 +92,6 @@ function bsearchHistory(low,high,data){
         count++;
         mid=parseInt((low+high)/2)
         high1=mid-1,low1=mid+1
-        console.log(history[mid])
         if(history[mid].toLowerCase().startsWith(data)){
             arr.push(history[mid])
             if(mid>0 && !history[mid-1].toLowerCase().startsWith(data))
