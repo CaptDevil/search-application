@@ -83,7 +83,7 @@ function swapArr(i,j){
     arr[j]=t
 }
 
-function searchIndex(){
+function searchIndex(data){
     bsearch(0,a.length-1,data,a)
 }
 
