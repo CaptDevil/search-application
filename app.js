@@ -99,8 +99,10 @@ function bsearchHistory(low,high,data){
         bsearchHistory(low,high1,data)
         bsearchHistory(low1,high,data)
     }
-    else
+    else{
+        quickSort(0,history.length-1,history)
         return
+    }
 }
 
 if(process.env.NODE_ENV == 'production'){
