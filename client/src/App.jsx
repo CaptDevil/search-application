@@ -12,11 +12,13 @@ class App extends Component {
   }
 
   handleInput=(data)=>{
+    if(data=='')
+      data='**'
     axios.get(`/api/${data}`)
       .then(res=>{
         this.setState({time:res.data.time,count:res.data.count,results:res.data.arr})
       })
-    console.log(typeof data)
+    console.log(data)
     /**
      * if(data){
       
