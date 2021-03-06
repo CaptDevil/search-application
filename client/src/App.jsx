@@ -16,9 +16,8 @@ class App extends Component {
       data='**'
     axios.get(`/api/${data}`)
       .then(res=>{
-        this.setState({time:res.data.time,count:res.data.count,results:res.data.arr})
+        this.setState({time:res.data.time,count:res.data.count,results:res.data.results})
       })
-    console.log(data)
     /**
      * if(data){
       
