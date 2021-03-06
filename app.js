@@ -47,9 +47,11 @@ function bsearchIndex(low,high,data){
             if(mid<a.length-1 && !a[mid+1].toLowerCase().startsWith(data))
                 low1=high+1
         }
-        bsearchHistory(low,high1,data)
-        bsearchHistory(low1,high,data)
+        bsearchIndex(low,high1,data)
+        bsearchIndex(low1,high,data)
     }
+    else
+        return
 }
 
 function quickSort(low,high){
@@ -98,6 +100,8 @@ function bsearchHistory(low,high,data){
         bsearchHistory(low,high1,data)
         bsearchHistory(low1,high,data)
     }
+    else
+        return
 }
 
 if(process.env.NODE_ENV == 'production'){
