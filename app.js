@@ -86,6 +86,7 @@ function swapArr(i,j,A){
 
 function bsearchHistory(low,high,data){
     let mid,high1,low1;
+    console.log(low,high,history)
     if(low<=high && arr.length!=6){
         count++;
         mid=parseInt((low+high)/2)
