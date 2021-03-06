@@ -18,10 +18,10 @@ app.get('/api/:data',(req,res)=>{
     if(typeof req.params.data != undefined){
         quickSort(0,history.length-1,history)
         let startTime=Date.now();
-        bsearchHistory(0,history.length-1,req.params.data.toLowerCase())
-        bsearchIndex(0,a.length-1,req.params.data.toLowerCase())
-        quickSort(0,arr.length-1,arr)
+            bsearchHistory(0,history.length-1,req.params.data.toLowerCase())
+            bsearchIndex(0,a.length-1,req.params.data.toLowerCase())
         let endTime=Date.now()
+        quickSort(0,arr.length-1,arr)
         let time=endTime-startTime;
         console.log({time,count,arr,history})
         res.send({time,count,arr});
@@ -89,6 +89,7 @@ function bsearchHistory(low,high,data){
         count++;
         mid=parseInt((low+high)/2)
         high1=mid-1,low1=mid+1
+        console.log(history[mid])
         if(history[mid].toLowerCase().startsWith(data)){
             arr.push(history[mid])
             if(mid>0 && !history[mid-1].toLowerCase().startsWith(data))
