@@ -23,7 +23,7 @@ app.get('/api/:data',(req,res)=>{
         quickSort(0,arr.length-1)
         let endTime=Date.now()
         let time=endTime-startTime;
-        console.log({time,count,arr})
+        console.log({time,count,arr,history})
         res.send({time,count,arr});
     }
     else
@@ -85,7 +85,6 @@ function swapArr(i,j){
 
 function bsearchHistory(low,high,data){
     let mid,high1,low1;
-    console.log(low,mid,high)
     if(low<=high && arr.length!=6){
         count++;
         mid=parseInt((low+high)/2)
