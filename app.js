@@ -70,23 +70,24 @@ function quickSort(low,high,A){
 }
 
 function partition(low,high,A){
-    pivot=low,i=low+1,j=high,t
+    let pivot=low,i=low+1,j=high
     while(i<=j){
         console.log(A[pivot],A[i],A[j])
         while(A[pivot].localeCompare(A[i])>=0)
             i++;
         while(A[pivot].localeCompare(A[j])<0)
             j--;
-        if(i<=j){
-            t=A[i]
-            A[i]=A[j]
-            A[j]=t
-        }
+        if(i<=j)
+            swapArr(i,j,A)
     }
-    t=A[pivot]
-    A[pivot]=A[j]
-    A[j]=t
+    swapArr(j,pivot,A)
     return j;
+}
+
+function swapArr(i,j,A){
+    let t=A[i]
+    A[i]=A[j]
+    A[j]=t
 }
 
 function bsearchHistory(low,high,data){
