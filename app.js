@@ -60,6 +60,7 @@ function bsearchIndex(low,high,data){
 
 function quickSort(low,high,A){
     let m;
+    console.log(low,high,A)
     if(low<high){
         m=partition(low,high,A);
         quickSort(low,m-1,A)
