@@ -73,7 +73,7 @@ function partition(low,high,A){
     let pivot=low,i=low+1,j=high,t
     while(i<=j){
         console.log(A[pivot],A[i],A[j])
-        while(A[pivot].localeCompare(A[i])>=0)
+        while(A[pivot].localeCompare(A[i])>=0 && i<=j)
             console.log(i++);
         while(A[pivot].localeCompare(A[j])<0)
             console.log(j--);
