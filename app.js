@@ -86,6 +86,7 @@ function partition(low,high,A){
     t=A[pivot]
     A[pivot]=A[j]
     A[j]=t
+    console.log(arr)
     return j;
 }
 
