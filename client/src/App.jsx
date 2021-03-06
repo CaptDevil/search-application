@@ -16,6 +16,7 @@ class App extends Component {
       .then(res=>{
         this.setState({time:res.data.time,count:res.data.count,results:res.data.arr})
       })
+    console.log(data)
     /**
      * if(data){
       
