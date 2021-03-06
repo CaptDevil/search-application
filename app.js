@@ -24,7 +24,7 @@ app.get('/api/:data',(req,res)=>{
         quickSort(0,arr.length-1,arr)
         let time=endTime-startTime;
         console.log({time,count,arr,history})
-        res.send({time,count,arr});
+        res.send({time:time,count:count,results:arr});
     }
     else
         res.send({time:-1,count:-1,results:[]})
