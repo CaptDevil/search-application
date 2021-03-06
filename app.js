@@ -89,6 +89,7 @@ function bsearchHistory(low,high,data){
         count++;
         mid=parseInt((low+high)/2)
         high1=mid-1,low1=mid+1
+        console.log(low,mid,high)
         if(history[mid].toLowerCase().startsWith(data)){
             arr.push(history[mid])
             if(mid>0 && !history[mid-1].toLowerCase().startsWith(data))
