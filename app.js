@@ -19,7 +19,7 @@ app.get('/api/:data',(req,res)=>{
         let startTime=Date.now();
         bsearchHistory(0,history.length-1,req.params.data.toLowerCase())
         bsearchIndex(0,a.length-1,req.params.data.toLowerCase())
-        quickSort(0,arr.length-1)
+        quickSort(0,arr.length-1,arr)
         let endTime=Date.now()
         let time=endTime-startTime;
         console.log({time,count,arr,history})
@@ -53,33 +53,33 @@ function bsearchIndex(low,high,data){
         return
 }
 
-function quickSort(low,high){
+function quickSort(low,high,A){
     let m;
     if(low<high){
-        m=partition(low,high);
-        quickSort(low,m-1)
-        quickSort(m+1,high)
+        m=partition(low,high,A);
+        quickSort(low,m-1,A)
+        quickSort(m+1,high,A)
     }
 }
 
-function partition(low,high){
+function partition(low,high,A){
     pivot=low,i=low+1,j=high
     while(i<=j){
-        while(arr[pivot].localeCompare(arr[i])>=0)
+        while(A[pivot].localeCompare(A[i])>=0)
             i++;
-        while(arr[pivot].localeCompare(arr[j])<0)
+        while(A[pivot].localeCompare(A[j])<0)
             j--;
         if(i<=j)
-            swapArr(i,j)
+            swapArr(i,j,A)
     }
-    swapArr(j,pivot)
+    swapArr(j,pivot,A)
     return j;
 }
 
-function swapArr(i,j){
-    let t=arr[i]
-    arr[i]=arr[j]
-    arr[j]=t
+function swapArr(i,j,A){
+    let t=A[i]
+    A[i]=A[j]
+    A[j]=t
 }
 
 function bsearchHistory(low,high,data){
