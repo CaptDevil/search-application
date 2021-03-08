@@ -41,7 +41,7 @@ function bsearchIndex(low,high,data){
         high1=mid-1,low1=mid+1
         if(a[mid].toLowerCase().startsWith(data)){
             arr.push(a[mid])
-            history.push(a[mid])
+            insertUnique(a[mid])
             if(mid>0 && !a[mid-1].toLowerCase().startsWith(data))
                 high1=low-1
             if(mid<a.length-1 && !a[mid+1].toLowerCase().startsWith(data))
@@ -104,6 +104,23 @@ function bsearchHistory(low,high,data){
     }
     else
         return
+}
+
+function insertUnique(data){
+    let i=0,j=history.length-1,mid,flag=1;
+    while(i<=j){
+        mid=parseInt((i+j)/2);
+        if(history[mid].toLocaleCompare(data)==0){
+            flag=0
+            break
+        }
+        else if(history[mid].toLocaleCompare(data)>0)
+            j=mid-1
+        else
+            i=mid+1
+    }
+    if(flag==1)
+        history.push(data)
 }
 
 if(process.env.NODE_ENV == 'production'){
