@@ -91,7 +91,7 @@ function bsearchHistory(low,high,data){
         mid=parseInt((low+high)/2)
         high1=mid-1,low1=mid+1
         if(history[mid].toLowerCase().startsWith(data)){
-            arr.push(history[mid])
+            insertUnique(arr,history[mid])
             if(mid>0 && !history[mid-1].toLowerCase().startsWith(data))
                 high1=low-1
             if(mid<history.length-1 && !history[mid+1].toLowerCase().startsWith(data))
