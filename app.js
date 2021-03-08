@@ -110,7 +110,7 @@ function insertUnique(data){
     let i=0,j=history.length-1,mid,flag=1;
     while(i<=j){
         mid=parseInt((i+j)/2);
-        if(history[mid].toLocaleCompare(data)==0){
+        if(history[mid].localeCompare(data)==0){
             flag=0
             break
         }
