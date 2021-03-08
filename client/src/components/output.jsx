@@ -10,7 +10,7 @@ function Output(props) {
         <div>
             {button}
             <ul>
-                {props.data.results.map(a=><li key={i++}><a href={"https://www.google.com/search?q="+a}>{a}</a></li>)}
+                {props.data.results.map(a=><li key={i++}><a href={"https://duckduckgo.com/?q="+a}>{a}</a></li>)}
             </ul>
         </div>
     );
