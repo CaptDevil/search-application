@@ -104,6 +104,7 @@ function bsearchHistory(low,high,data){
 
 function insertUnique(A,data){
     let i=0,j=A.length-1,mid,flag=1;
+    console.log(A,data)
     while(i<=j){
         mid=parseInt((i+j)/2);
         if(A[mid].localeCompare(data)==0){
@@ -117,6 +118,7 @@ function insertUnique(A,data){
     }
     if(flag==1)
         A.push(data)
+    console.log(A,data)
 }
 
 if(process.env.NODE_ENV == 'production'){
