@@ -20,10 +20,6 @@ app.get('/api/:data',(req,res)=>{
         bsearchHistory(0,history.length-1,req.params.data.toLowerCase())
         bsearchIndex(0,a.length-1,req.params.data.toLowerCase())
         let endTime=Date.now()
-        /**
-         * quickSort(0,arr.length-1,arr)
-        quickSort(0,history.length-1,history)
-         */
         let time=endTime-startTime;
         console.log({time,count,arr,history})
         res.send({time:time,count:count,results:arr});
@@ -106,7 +102,6 @@ function bsearchHistory(low,high,data){
 
 function insertUnique(A,data){
     let i=0,j=A.length-1,mid,flag=1;
-    console.log(A,data)
     while(i<=j){
         mid=parseInt((i+j)/2);
         if(A[mid].localeCompare(data)==0){
@@ -120,9 +115,7 @@ function insertUnique(A,data){
     }
     if(flag==1)
         A.push(data)
-    console.log("Before sort",A)
     quickSort(0,A.length-1,A)
-    console.log("After sort",A)
 }
 
 if(process.env.NODE_ENV == 'production'){
