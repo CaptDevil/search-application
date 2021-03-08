@@ -56,10 +56,8 @@ function bsearchIndex(low,high,data){
 
 function quickSort(low,high,A){
     let m;
-    console.log(low,high,A)
     if(low<high){
         m=partition(low,high,A);
-        console.log(m,A[m])
         quickSort(low,m-1,A)
         quickSort(m+1,high,A)
     }
@@ -68,7 +66,6 @@ function quickSort(low,high,A){
 function partition(low,high,A){
     let pivot=low,i=low+1,j=high,t
     while(i<=j){
-        console.log(A[pivot],A[i],A[j])
         while(A[pivot].localeCompare(A[i])>=0 && i<=j)
             i++
         while(A[pivot].localeCompare(A[j])<0)
@@ -87,7 +84,6 @@ function partition(low,high,A){
 
 function bsearchHistory(low,high,data){
     let mid,high1,low1;
-    console.log(low,high,history)
     if(low<=high && arr.length!=6){
         count++;
         mid=parseInt((low+high)/2)
