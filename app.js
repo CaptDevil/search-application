@@ -16,12 +16,12 @@ let a=[],count=0,history=[];
 
 app.get('/api/:data',(req,res)=>{
     if(req.params.data != '**'){
-        quickSort(0,history.length-1,history)
         let startTime=Date.now();
         bsearchHistory(0,history.length-1,req.params.data.toLowerCase())
         bsearchIndex(0,a.length-1,req.params.data.toLowerCase())
         let endTime=Date.now()
         quickSort(0,arr.length-1,arr)
+        quickSort(0,history.length-1,history)
         let time=endTime-startTime;
         console.log({time,count,arr,history})
         res.send({time:time,count:count,results:arr});
