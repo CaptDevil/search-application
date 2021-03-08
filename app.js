@@ -114,7 +114,7 @@ function insertUnique(data){
             flag=0
             break
         }
-        else if(history[mid].toLocaleCompare(data)>0)
+        else if(history[mid].localeCompare(data)>0)
             j=mid-1
         else
             i=mid+1
